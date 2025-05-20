@@ -23,9 +23,16 @@ The goal is to simplify the process of writing Swagger-compatible JSDoc by offer
 ---
 
 ## 🖼️ Example UI
-https://swagger-doc-ui-edu.vercel.app/
-<img width="500" alt="image" src="https://github.com/user-attachments/assets/4132b359-17ca-4384-a532-b8d0c8076fcf" />
 
+Try it live at: [https://swagger-doc-ui-edu.vercel.app/](https://swagger-doc-ui-edu.vercel.app/)
+
+<img width="500" alt="UI Example" src="https://github.com/user-attachments/assets/4132b359-17ca-4384-a532-b8d0c8076fcf" />
+
+**How it works:**
+- Enter API details such as Path, Method, Tag, Summary, and Description using a simple form.
+- Instantly see the generated Swagger JSDoc block on the right, updated in real time.
+- Copy the ready-to-use comment and paste it directly into your Express controller.
+- The interface is clean, responsive, and works on both desktop and mobile devices.
 ---
 
 ## 🛠 Tech Stack
