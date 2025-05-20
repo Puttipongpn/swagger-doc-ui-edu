@@ -23,7 +23,7 @@ The goal is to simplify the process of writing Swagger-compatible JSDoc by offer
 ---
 
 ## 🖼️ Example UI
-
+https://swagger-doc-ui-edu.vercel.app/
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/4132b359-17ca-4384-a532-b8d0c8076fcf" />
 
 ---
