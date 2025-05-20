@@ -26,7 +26,7 @@ The goal is to simplify the process of writing Swagger-compatible JSDoc by offer
 
 Try it live at: [https://swagger-doc-ui-edu.vercel.app/](https://swagger-doc-ui-edu.vercel.app/)
 
-<img width="500" alt="UI Example" src="https://github.com/user-attachments/assets/4132b359-17ca-4384-a532-b8d0c8076fcf" />
+<img width="500" alt="UI Example" src="https://github.com/user-attachments/assets/33f179cc-617c-4a12-a893-865c348cc8a0" />
 
 **How it works:**
 - Enter API details such as Path, Method, Tag, Summary, and Description using a simple form.
