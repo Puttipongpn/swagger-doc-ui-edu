@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { SwaggerSchemaProperty } from '../types/swagger';
+import { IoMdAddCircleOutline } from 'react-icons/io';
+import { FaDeleteLeft } from "react-icons/fa6";
 
 interface RequestField {
   key: string;
@@ -30,7 +32,7 @@ export default function RequestBodyEditor({ method, onUpdate }: Props) {
       }
     });
     onUpdate(requestBody);
-  }, [onUpdate, requestFields]);
+  }, [requestFields]);
 
   const addField = () => {
     setRequestFields([...requestFields, { key: '', type: '', description: '', example: '' }]);
@@ -51,18 +53,39 @@ export default function RequestBodyEditor({ method, onUpdate }: Props) {
   if (method === 'get') return null;
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 border p-4 rounded ">
       <label className="font-bold block">Request Body</label>
+      <div className="grid grid-cols-5 gap-2 font-medium text-sm">
+        <span>Key</span>
+        <span>Type</span>
+        <span>Description</span>
+        <span>Example</span>
+      </div>
       {requestFields.map((field, index) => (
-        <div key={index} className="grid grid-cols-5 gap-2 items-center">
+        <div key={index} className="grid grid-cols-5 gap-2 items-center ">
           <input className="input" placeholder="Key" value={field.key} onChange={(e) => updateField(index, 'key', e.target.value)} />
           <input className="input" placeholder="Type" value={field.type} onChange={(e) => updateField(index, 'type', e.target.value)} />
           <input className="input" placeholder="Description" value={field.description} onChange={(e) => updateField(index, 'description', e.target.value)} />
           <input className="input" placeholder="Example" value={field.example} onChange={(e) => updateField(index, 'example', e.target.value)} />
-          <button onClick={() => removeField(index)} className="text-red-600">Remove</button>
+          <button
+            type="button"
+            onClick={() => removeField(index)}
+            className="btn-remove "
+            title="Remove field"
+          >
+            <FaDeleteLeft size={20} />
+            <span >
+              Remove
+            </span>
+          </button>
         </div>
       ))}
-      <button onClick={addField} className="bg-blue-500 text-white px-3 py-1 rounded">+ Add Field</button>
-    </div>
+      <button onClick={addField} className="btn">
+        <IoMdAddCircleOutline size={20} />
+        <span>
+          Add Field
+        </span>
+      </button>
+    </div >
   );
 } 

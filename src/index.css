@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply flex items-center gap-1 px-3 py-1 mt-2 rounded bg-blue-500 hover:bg-blue-600 text-white font-medium transition-colors;
+  }
+
+  .btn-remove {
+    @apply flex  items-center justify-center bg-red-500 hover:bg-red-600 px-2 py-1 font-medium rounded text-white;
+  }
+
+  .input {
+    @apply border border-gray-300 px-3 py-1 rounded w-full;
+  }
+
+  .section-label {
+    @apply text-sm font-bold text-gray-700;
+  }
+}

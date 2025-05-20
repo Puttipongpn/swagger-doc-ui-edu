@@ -1,17 +1,11 @@
 import type { SwaggerInput } from "../types/swagger";
-
-interface QueryParam {
-    name: string;
-    type: string;
-    description: string;
-    required: boolean;
-}
+import type { QueryParam } from "../types/swagger";
 
 export function generateSwaggerJSDoc(input: SwaggerInput & { queryParams?: QueryParam[] }): string {
     const { path, method, tags, summary, description, requestBody, responses, queryParams = [] } = input;
     const indent = (lines: string[], level = 2) => lines.map(l => ' '.repeat(level) + l).join('\n');
 
-    const hasBodyMethod = ['post', 'put', 'patch'].includes(method.toLowerCase());
+    const hasBodyMethod = ['post', 'put', 'patch', 'delete'].includes(method.toLowerCase());
 
     const paramStr = method === 'get' && queryParams.length > 0
         ? `    parameters:\n${indent(queryParams.flatMap(param => ([
@@ -56,6 +50,7 @@ export function generateSwaggerJSDoc(input: SwaggerInput & { queryParams?: Query
             2
         )}`
         : '';
+    
 
     return wrapCommentBlock([
         '@swagger',

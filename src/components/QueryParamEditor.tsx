@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { QueryParam } from "../types/swagger";
+import { FaDeleteLeft } from 'react-icons/fa6';
+import { IoMdAddCircleOutline } from 'react-icons/io';
 
 interface Props {
   method: string;
@@ -32,7 +34,7 @@ export default function QueryParamEditor({ method, onUpdate }: Props) {
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 border p-4 rounded">
       <label className="font-bold block">Query Parameters</label>
       {params.map((param, index) => (
         <div key={index} className="grid grid-cols-5 gap-2 items-center">
@@ -40,12 +42,20 @@ export default function QueryParamEditor({ method, onUpdate }: Props) {
           <input className="input" placeholder="Type" value={param.type} onChange={(e) => updateParam(index, 'type', e.target.value)} />
           <input className="input" placeholder="Description" value={param.description} onChange={(e) => updateParam(index, 'description', e.target.value)} />
           <label className="flex items-center">
-            <input type="checkbox" checked={param.required} onChange={(e) => updateParam(index, 'required', e.target.checked)} /> Required
+            <input type="checkbox" className='mx-1.5' checked={param.required} onChange={(e) => updateParam(index, 'required', e.target.checked)} /> Required
           </label>
-          <button onClick={() => removeParam(index)} className="text-red-600">Remove</button>
+          <button onClick={() => removeParam(index)} className="btn-remove">
+            <FaDeleteLeft size={20} />
+            <span >
+              Remove
+            </span>
+          </button>
         </div>
       ))}
-      <button onClick={addParam} className="bg-blue-500 text-white px-3 py-1 rounded">+ Add Parameter</button>
+      <button onClick={addParam} className="btn" type="button">
+        <IoMdAddCircleOutline size={20} />
+        <span>Add Response</span>
+      </button>
     </div>
   );
 }
