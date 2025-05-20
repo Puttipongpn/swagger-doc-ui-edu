@@ -30,7 +30,7 @@ export default function RequestBodyEditor({ method, onUpdate }: Props) {
       }
     });
     onUpdate(requestBody);
-  }, [requestFields]);
+  }, [onUpdate, requestFields]);
 
   const addField = () => {
     setRequestFields([...requestFields, { key: '', type: '', description: '', example: '' }]);

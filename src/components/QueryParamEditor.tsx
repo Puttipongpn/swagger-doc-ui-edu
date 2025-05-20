@@ -11,7 +11,7 @@ export default function QueryParamEditor({ method, onUpdate }: Props) {
 
   useEffect(() => {
     onUpdate(params);
-  }, [params]);
+  }, [onUpdate, params]);
 
   if (method !== 'get') return null;
 
