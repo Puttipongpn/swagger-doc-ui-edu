@@ -1,4 +1,3 @@
-// utils/generateSwaggerJSDoc.ts
 import type { SwaggerInput } from "../types/swagger";
 
 interface QueryParam {
