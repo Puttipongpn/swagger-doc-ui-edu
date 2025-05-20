@@ -17,4 +17,11 @@ export interface SwaggerSchemaProperty {
     requestBody?: Record<string, SwaggerSchemaProperty>;
     responses?: Record<string, SwaggerResponse>;
   }
+
+  export interface QueryParam {
+    name: string;
+    type: string;
+    description: string;
+    required: boolean;
+  }
   
