@@ -2,13 +2,7 @@ import { useEffect, useState } from 'react';
 import type { SwaggerSchemaProperty } from '../types/swagger';
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { FaDeleteLeft } from "react-icons/fa6";
-
-interface RequestField {
-  key: string;
-  type: string;
-  description: string;
-  example: string;
-}
+import type { RequestField } from '../types/swagger';
 
 interface Props {
   method: string;
@@ -64,7 +58,13 @@ export default function RequestBodyEditor({ method, onUpdate }: Props) {
       {requestFields.map((field, index) => (
         <div key={index} className="grid grid-cols-5 gap-2 items-center ">
           <input className="input" placeholder="Key" value={field.key} onChange={(e) => updateField(index, 'key', e.target.value)} />
-          <input className="input" placeholder="Type" value={field.type} onChange={(e) => updateField(index, 'type', e.target.value)} />
+          <select className="input" value={field.type} onChange={(e) => updateField(index, 'type', e.target.value)}>
+            {['string', 'number', 'boolean', 'object', 'array'].map((type) => (
+              <option key={type} value={type}>
+                {type.charAt(0) + type.slice(1)}
+              </option>
+            ))}
+          </select>
           <input className="input" placeholder="Description" value={field.description} onChange={(e) => updateField(index, 'description', e.target.value)} />
           <input className="input" placeholder="Example" value={field.example} onChange={(e) => updateField(index, 'example', e.target.value)} />
           <button

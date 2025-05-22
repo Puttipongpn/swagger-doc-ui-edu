@@ -39,7 +39,13 @@ export default function QueryParamEditor({ method, onUpdate }: Props) {
       {params.map((param, index) => (
         <div key={index} className="grid grid-cols-5 gap-2 items-center">
           <input className="input" placeholder="Name" value={param.name} onChange={(e) => updateParam(index, 'name', e.target.value)} />
-          <input className="input" placeholder="Type" value={param.type} onChange={(e) => updateParam(index, 'type', e.target.value)} />
+          <select className='input' value={param.type} onChange={(e) => updateParam(index, 'type', e.target.value)} id="">
+            {['string', 'number', 'boolean'].map((type) => (
+              <option key={type} value={type}>
+                {type.charAt(0) + type.slice(1)}
+              </option>
+            ))}
+          </select>
           <input className="input" placeholder="Description" value={param.description} onChange={(e) => updateParam(index, 'description', e.target.value)} />
           <label className="flex items-center">
             <input type="checkbox" className='mx-1.5' checked={param.required} onChange={(e) => updateParam(index, 'required', e.target.checked)} /> Required
