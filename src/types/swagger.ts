@@ -29,3 +29,10 @@ export interface Response {
   code: string;
   description: string;
 }
+
+export interface RequestField {
+  key: string;
+  type: string;
+  description: string;
+  example: string;
+}
